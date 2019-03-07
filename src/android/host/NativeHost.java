@@ -118,8 +118,8 @@ public class NativeHost extends CordovaPlugin {
 
     public void onNewIntent(Intent intent) {
         // This is important when we were launched by a widget item click
-        this.intent = intent;
-        OutgoingMessages.raiseEvent("ace.android.intentchanged", null, null);
+        //this.intent = intent;
+        //OutgoingMessages.raiseEvent("ace.android.intentchanged", null, null);
     }
 
     // Called when the URL of the webview changes.
