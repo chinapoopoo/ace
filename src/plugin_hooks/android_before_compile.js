@@ -1,3 +1,4 @@
+
 //-------------------------------------------------------------------------------------------------------
 // Copyright (C) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
@@ -8,7 +9,7 @@ function copyAndroidFiles() {
     var fs = require('fs-extra');
 
     // Find the destination folder
-	var dest = path.join(__dirname, '../../../../platforms/android');
+	var dest = path.join(__dirname, '../../../../platforms/android/app');
 
     // TODO: This was copying to a distinct spot, but that causes problems.
     //       By copying to the same spot as the rest of the code, however,
@@ -17,7 +18,7 @@ function copyAndroidFiles() {
     //       the necessary files will get copied back.
 
     // See if the app has native android files
-	var nativeAndroidAppFolder = path.join(__dirname, '../../../../native/android');
+	var nativeAndroidAppFolder = path.join(__dirname, '../../../../native/android/app');
 
 	try {
 		fs.accessSync(nativeAndroidAppFolder, fs.R_OK);
@@ -35,7 +36,7 @@ module.exports = function (context) {
     var fs = require('fs');
     
     // Do not allow theme with no action bar
-    var dest = path.join(__dirname, '../../../../platforms/android/AndroidManifest.xml');
+    var dest = path.join(__dirname, '../../../../platforms/android/app/src/main/AndroidManifest.xml');
     var manifest = fs.readFileSync(dest, 'utf8');
     manifest = manifest.replace('android:theme="@android:style/Theme.DeviceDefault.NoActionBar"', '');
     fs.writeFileSync(dest, manifest);
